@@ -1,0 +1,100 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n admin_urls %}
+{% load static %}
+
+{% block title %}
+Voice Share | Voice Share App
+{% endblock title %}
+
+{% block content %}
+
+  <div class="container">
+    <!-- <div class="row"> -->
+      <div class="col-12">
+        <h3 class="mb-3"> Collaborateurs </h3>
+        <hr style="border-color:#b8bfc2;">
+      </div>
+
+      <div class="col-12">
+        <h4 class="blue mb-3"> <a href="http://127.0.0.1:8000/admin/auth/user/"> Utilisateurs </a></h4>
+      </div>
+      
+      {% for user in Users %}
+        <div class="row">
+          <div class="col-12">
+          <div class="card" style="margin-bottom: 5px;">
+              <div class="container" style="padding: 0%;">
+                <div class="float-child" style="width: 40%;float: left; background-color: #F2F3F4; height: 90px; padding-left: 10px;">
+                  <p><h5>{{ user.first_name }} {{ user.last_name }} </h5> </p>
+                  <p>
+                    <h6>
+                        <p>Équipe:            
+                            {% if user.groups.all %}
+                              {% for usergroup in user.groups.all %}
+                                <a href="http://127.0.0.1:8000/admin/auth/group/{{ usergroup.id }}/change/">{{ usergroup.name }},</a>
+                              {% endfor %}    
+                            {% else %}
+                              Non attribuée
+                            {% endif %}
+                        </p>
+                    </h6>
+                </p>
+              </div>
+              <div class="float-child" style="width: 50%;float: left; background-color: #F2F3F4; height: 90px; padding-top: 15px;">
+                <p>{{ user.email }}</p>
+                <p><p><h6>&nbsp;&nbsp;&nbsp;</h6></p></p></p>
+              </div>
+              <div class="float-child" style="width: 10%;float: left; background-color: #fff; height: 90px; padding-top: 15px; padding-left: 10px; border-radius: 10px;">
+                <p><a class="blue" href="http://127.0.0.1:8000/admin/auth/user/{{ user.id }}/change/">Modifier</a></p>
+                <p><a class="red" href="http://127.0.0.1:8000/admin/auth/user/{{ user.id }}/delete/">Supprimer</a></p>
+              </div>
+            </div>
+          </div>      
+          </div>                                                                                              
+        </div> 
+      {% endfor %}
+    <!-- </div> -->
+  </div>
+      
+  <p></p>
+  <div class="container">
+    <!-- <div class="row"> -->
+      <div class="col-12">
+        <h4 class="blue mb-3"> <a href="http://127.0.0.1:8000/admin/auth/group/"> Groupes </a></h4>
+      </div>
+
+      {% for group in Groups %}
+      <div class="row">
+        <div class="col-12">
+          <div class="card" style="margin-bottom: 10px;">
+            <div class="container" style="padding: 0%;">
+
+              <div class="float-child" style="width: 40%;float: left; background-color: #F2F3F4; height: 90px; padding-left: 10px; padding-top: 15px;">
+                <!-- <div class="container" style="background-color: #F2F3F4;"> -->
+                  <h5>{{ group.name }}</h5>
+                <!-- </div> -->
+              </div>
+              
+              <div class="float-child" style="width: 50%;float: left; background-color: #F2F3F4; height: 90px; padding-left: 10px; padding-top: 15px;">
+                <!-- <div class="container" style="background-color: #F2F3F4;"> -->
+                  {% if group.user_set.all %}                    
+                      {% for user in group.user_set.all %}
+                        <h6>{{ user.first_name }} {{ user.last_name }},</h6>
+                      {% endfor %}    
+                  {% endif %}
+                <!-- </div> -->
+              </div>
+              <div class="float-child" style="width: 10%;float: left; background-color: #fff; height: 90px; padding-left: 10px; padding-top: 15px; border-radius: 10px;">
+                <p><a class="blue" href="http://127.0.0.1:8000/admin/auth/group/{{ group.id }}/change/">Modifier</a></p>
+                <p><a class="red" href="http://127.0.0.1:8000/admin/auth/group/{{ group.id }}/delete/">Supprimer</a></p>
+              </div>
+            </div>
+          </div>
+        </div>                                                                                                  
+      </div> 
+      {% endfor %}
+    <!-- </div> -->
+  </div>      
+{% endblock content %}
+
+      

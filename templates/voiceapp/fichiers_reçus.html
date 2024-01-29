@@ -1,0 +1,41 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n admin_urls %}
+{% load static %}
+
+{% block title %}
+Voice Share | Voice Share App
+{% endblock title %}
+
+{% block content %}
+
+  <div class="container">
+    <!-- <div class="row"> -->
+      <div class="col-12">
+        <h3 class="mb-3"> Fichiers reçus </h3>
+        <hr style="border-color:#b8bfc2;">
+      </div>
+     
+      <div class="row">
+        <div class="col-12">
+        <div class="card" style="margin-bottom: 10px;">
+            <div class="container" style="background-color: #F2F3F4;">
+              <table>
+              {% for audio in Audios %}
+                <div class="float-child" style="float: left; text-align: center; width: 20%; padding: 10px;" >
+                  <a href="http://127.0.0.1:8000/static/{{audio.audio_file}}" target="_blank"><i class="fa fa-file-audio" style="font-size:50px;color:red"></i></a>
+                  <p style="height: 50px; font-size: small; font-weight:bold;" >{{ audio.audio_file }}</p>
+                  <p style="font-size: small;" >{{ audio.created_at }}</p>
+                  <button class="btn-purple-moon" style="margin-bottom: 10px;" onclick="window.location.href = 'http://127.0.0.1:8000/admin/voiceapp/audio_user/add/';"> Ajouter</button>
+                </div>
+              {% endfor %}
+              </table>
+            </div>
+          </div>       
+          </div>                                                                                              
+        </div> 
+      
+    <!-- </div> -->
+  </div>
+{% endblock content %}
+
+      

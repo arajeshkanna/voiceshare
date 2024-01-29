@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+
+{% load static %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+
+{% block content_title %}
+    <p style="background: #eb0303; padding: 10px 8px">
+        This is a really important message.
+    </p>
+    <p style="background: #eb0303; padding: 10px 8px">
+        This is a really important message.
+    </p>
+{% endblock %}
+
+{% block extrastyle %}
+<link href="{% static 'css/admin.css' %}" rel="stylesheet" type="text/css" media="screen,projection" />
+{% endblock %}
+
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">
+        <img src="{% static 'images/1.jpg' %}" height="40px" />
+    </a>
+</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

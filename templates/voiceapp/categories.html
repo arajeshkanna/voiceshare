@@ -1,0 +1,53 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n admin_urls %}
+{% load static %}
+
+{% block title %}
+Voice Share | Voice Share App
+{% endblock title %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="mb-3"> Tous les audios </h3>
+        <hr style="border-color:#b8bfc2;">
+      </div>
+
+      {% for category in categorys %}
+        <div class="row">
+        <div class="col-12">
+            <p></p>
+        <h4>{{ category.name }} &nbsp;&nbsp;&nbsp;<a class="ibutton" href="http://127.0.0.1:8000/admin/voiceapp/catagory/{{ category.id }}/change/"><i class="fa fa-edit"></i></a></h4>
+        
+        {% for audio in category.audio_set.all %}
+        <div class="row">
+            <div class="col-12">
+            <div class="card" style="margin-bottom: 10px;">
+                <div class="container" style="background-color: #F2F3F4;">
+                    <h6><b>{{ audio.name }} &nbsp;&nbsp;&nbsp;<a class="ibutton" href="http://127.0.0.1:8000/admin/voiceapp/audio/{{ audio.id }}/change/"><i class="fa fa-edit"></i></a></b></h6>
+                    <h6><audio controls><source src="http://127.0.0.1:8000/static/{{audio.audio_file}}" type="audio/mpeg"></audio></h6>
+                    <h6><p>{{ audio.description }}</p></h6>            
+                    <h6>
+                        <p>Users:            
+                            {% for audio_user in audio.audio_user_set.all %}
+                                <!-- http://127.0.0.1:8000/admin/voiceapp/audio_user/3/change/ -->
+                                <a href="http://127.0.0.1:8000/admin/auth/user/{{ audio_user.User_name_id }}/change/">{{ audio_user.User_name }},</a>
+                            {% endfor %}    
+                        </p>
+                    </h6>
+                </div>
+            </div>      
+          </div>                                                                                              
+        </div>              
+        {% endfor %}
+      {% endfor %}
+        </div>
+        </div>
+      <p></p>
+    </div>
+  </div>
+{% endblock content %}
+
+      

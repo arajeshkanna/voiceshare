@@ -1,0 +1,13 @@
+.info{
+  color: #ad1313;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #9846e5;
+  border-color: #9846e5;
+}
+
+#login-form input[type="submit"] {
+  background-color: #9846e5; /* Set your desired color */
+}

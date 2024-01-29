@@ -1,0 +1,32 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n admin_urls %}
+{% load static %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+        &rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+        &rsaquo; <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+        &rsaquo; {{ object }}
+    </div>
+{% endblock %}
+
+
+{% block content %}  
+    <div style="font-size: 18px;text-align: end;padding-right: 60px;">
+        {% if object %}
+            <div class="card">
+                <!-- <img src="{{ item.product.image.url }}" height="30" alt="Avatar" style="width:100%"> -->
+                <!-- <img src="{% static 'images/1.jpg' %}" alt="Avatar" style="width:100%"> -->
+                <div class="container">
+                    <h3><b>{{ object.Audio_name }} </b></h3>
+                    <audio controls><source src="http://127.0.0.1:8000/static/{{object.audio_file}}" type="audio/mpeg"></audio>
+                    <p>{{ object.User_name }}</p>
+                    <p>{{ object.description }}</p>
+                    <!--<h4><a href="http://127.0.0.1:8000/voice_files/{{object.audio_file}}">{{ object.audio_file }}</a> </h4>
+                     http://127.0.0.1:8000/voice_files/uploads/20231206202724Audio_MP3_5MG.mp3 -->                   
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
