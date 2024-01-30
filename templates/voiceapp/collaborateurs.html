@@ -16,7 +16,7 @@ Voice Share | Voice Share App
       </div>
 
       <div class="col-12">
-        <h4 class="blue mb-3"> <a href="http://127.0.0.1:8000/admin/auth/user/"> Utilisateurs </a></h4>
+        <h4 class="blue mb-3"> <a href="https://rajesh1872.pythonanywhere.com/admin/auth/user/"> Utilisateurs </a></h4>
       </div>
       
       {% for user in Users %}
@@ -31,7 +31,7 @@ Voice Share | Voice Share App
                         <p>Équipe:            
                             {% if user.groups.all %}
                               {% for usergroup in user.groups.all %}
-                                <a href="http://127.0.0.1:8000/admin/auth/group/{{ usergroup.id }}/change/">{{ usergroup.name }},</a>
+                                <a href="https://rajesh1872.pythonanywhere.com/admin/auth/group/{{ usergroup.id }}/change/">{{ usergroup.name }},</a>
                               {% endfor %}    
                             {% else %}
                               Non attribuée
@@ -45,8 +45,8 @@ Voice Share | Voice Share App
                 <p><p><h6>&nbsp;&nbsp;&nbsp;</h6></p></p></p>
               </div>
               <div class="float-child" style="width: 10%;float: left; background-color: #fff; height: 90px; padding-top: 15px; padding-left: 10px; border-radius: 10px;">
-                <p><a class="blue" href="http://127.0.0.1:8000/admin/auth/user/{{ user.id }}/change/">Modifier</a></p>
-                <p><a class="red" href="http://127.0.0.1:8000/admin/auth/user/{{ user.id }}/delete/">Supprimer</a></p>
+                <p><a class="blue" href="https://rajesh1872.pythonanywhere.com/admin/auth/user/{{ user.id }}/change/">Modifier</a></p>
+                <p><a class="red" href="https://rajesh1872.pythonanywhere.com/admin/auth/user/{{ user.id }}/delete/">Supprimer</a></p>
               </div>
             </div>
           </div>      
@@ -60,7 +60,7 @@ Voice Share | Voice Share App
   <div class="container">
     <!-- <div class="row"> -->
       <div class="col-12">
-        <h4 class="blue mb-3"> <a href="http://127.0.0.1:8000/admin/auth/group/"> Groupes </a></h4>
+        <h4 class="blue mb-3"> <a href="https://rajesh1872.pythonanywhere.com/admin/auth/group/"> Groupes </a></h4>
       </div>
 
       {% for group in Groups %}
@@ -85,8 +85,8 @@ Voice Share | Voice Share App
                 <!-- </div> -->
               </div>
               <div class="float-child" style="width: 10%;float: left; background-color: #fff; height: 90px; padding-left: 10px; padding-top: 15px; border-radius: 10px;">
-                <p><a class="blue" href="http://127.0.0.1:8000/admin/auth/group/{{ group.id }}/change/">Modifier</a></p>
-                <p><a class="red" href="http://127.0.0.1:8000/admin/auth/group/{{ group.id }}/delete/">Supprimer</a></p>
+                <p><a class="blue" href="https://rajesh1872.pythonanywhere.com/admin/auth/group/{{ group.id }}/change/">Modifier</a></p>
+                <p><a class="red" href="https://rajesh1872.pythonanywhere.com/admin/auth/group/{{ group.id }}/delete/">Supprimer</a></p>
               </div>
             </div>
           </div>

@@ -20,11 +20,11 @@
                 <!-- <img src="{% static 'images/1.jpg' %}" alt="Avatar" style="width:100%"> -->
                 <div class="container">
                     <h3><b>{{ object.Audio_name }} </b></h3>
-                    <audio controls><source src="http://127.0.0.1:8000/static/{{object.audio_file}}" type="audio/mpeg"></audio>
+                    <audio controls><source src="https://rajesh1872.pythonanywhere.com/static/{{object.audio_file}}" type="audio/mpeg"></audio>
                     <p>{{ object.User_name }}</p>
                     <p>{{ object.description }}</p>
-                    <!--<h4><a href="http://127.0.0.1:8000/voice_files/{{object.audio_file}}">{{ object.audio_file }}</a> </h4>
-                     http://127.0.0.1:8000/voice_files/uploads/20231206202724Audio_MP3_5MG.mp3 -->                   
+                    <!--<h4><a href="https://rajesh1872.pythonanywhere.com/voice_files/{{object.audio_file}}">{{ object.audio_file }}</a> </h4>
+                     https://rajesh1872.pythonanywhere.com/voice_files/uploads/20231206202724Audio_MP3_5MG.mp3 -->                   
                 </div>
             </div>
         {% endif %}
